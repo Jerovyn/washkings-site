@@ -55,7 +55,12 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
-    ];
+      {
+        source: "/gallery",
+        destination: "/gallery",
+        permanent: true,
+      },
+    ],
   },
 };
 

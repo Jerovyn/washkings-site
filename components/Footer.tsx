@@ -20,13 +20,43 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/power-washing/residential" className="text-gray-400 hover:text-white">
-                  Residential Power Washing
+                <Link href="/about" className="text-gray-400 hover:text-white">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/power-washing/commercial" className="text-gray-400 hover:text-white">
-                  Commercial Power Washing
+                <Link href="/contact" className="text-gray-400 hover:text-white">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-gray-400 hover:text-white">
+                  Gallery
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/power-washing/residential" className="text-gray-400 hover:text-white">
+                  Power Washing
+                </Link>
+              </li>
+              <li>
+                <Link href="/holiday-lights/residential" className="text-gray-400 hover:text-white">
+                  Holiday Lights
+                </Link>
+              </li>
+              <li>
+                <Link href="/general-contracting/residential" className="text-gray-400 hover:text-white">
+                  General Contracting
+                </Link>
+              </li>
+              <li>
+                <Link href="/roofing/residential" className="text-gray-400 hover:text-white">
+                  Roofing
                 </Link>
               </li>
             </ul>

@@ -91,6 +91,86 @@ export default function ServiceLandingPage({
           </div>
         </section>
 
+        {/* Process Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                Our {title} Process
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                We make it easy with our proven 4-step process
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+                  1
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Free Estimate</h3>
+                <p className="text-gray-600 text-sm">We assess your property and provide a detailed, no-obligation quote</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+                  2
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Schedule</h3>
+                <p className="text-gray-600 text-sm">Choose a time that works best for you - we&apos;re flexible</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+                  3
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Service</h3>
+                <p className="text-gray-600 text-sm">Our expert team arrives on time and completes the job professionally</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 shadow-lg">
+                  4
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Results</h3>
+                <p className="text-gray-600 text-sm">Enjoy your transformed property with our satisfaction guarantee</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="space-y-6">
+              {[
+                {
+                  q: `How much does ${title.toLowerCase()} cost?`,
+                  a: `Pricing varies based on the size and scope of your project. We provide free, detailed estimates with no obligation. Contact us today for a personalized quote.`
+                },
+                {
+                  q: `How long does ${title.toLowerCase()} take?`,
+                  a: `Project duration depends on the size and complexity of the job. Most residential projects take 2-4 hours, while commercial projects may take a full day or more. We&apos;ll provide a time estimate with your quote.`
+                },
+                {
+                  q: `Do I need to be present during service?`,
+                  a: `You don&apos;t need to be home during the service. We work independently and will contact you if we need access to anything. Many customers appreciate the convenience of being able to continue their day.`
+                },
+                {
+                  q: `What preparation is needed before service?`,
+                  a: `We&apos;ll provide specific instructions when you book, but generally we ask that you clear the work area, secure pets, and move any fragile items. We handle everything else!`
+                }
+              ].map((faq, index) => (
+                <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{faq.q}</h3>
+                  <p className="text-gray-600">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Lead Form Section */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
