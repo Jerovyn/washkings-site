@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import ServiceLandingPage from "@/components/ServiceLandingPage";
+
+export const metadata: Metadata = {
+  title: "Commercial Roofing Services | Staten Island Wash Kings",
+  description: "Professional commercial roofing services in Staten Island. Commercial roof repairs, installation, and maintenance. Licensed, insured, and 5-star rated.",
+};
 
 export default function RoofingCommercial() {
   return (

@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import ServiceLandingPage from "@/components/ServiceLandingPage";
+
+export const metadata: Metadata = {
+  title: "Commercial Power Washing Services | Staten Island Wash Kings",
+  description: "Professional commercial power washing services in Staten Island. Storefront cleaning, parking lot maintenance, building exterior washing, and more. Licensed, insured, and 5-star rated.",
+};
 
 export default function PowerWashingCommercial() {
   return (

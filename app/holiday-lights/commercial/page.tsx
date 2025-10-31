@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import ServiceLandingPage from "@/components/ServiceLandingPage";
+
+export const metadata: Metadata = {
+  title: "Commercial Holiday Lights Installation | Staten Island Wash Kings",
+  description: "Professional commercial holiday lights installation for businesses in Staten Island. Storefront displays, building lighting, and custom designs. Licensed, insured, and 5-star rated.",
+};
 
 export default function HolidayLightsCommercial() {
   return (

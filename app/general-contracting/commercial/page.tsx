@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import ServiceLandingPage from "@/components/ServiceLandingPage";
+
+export const metadata: Metadata = {
+  title: "Commercial General Contracting Services | Staten Island Wash Kings",
+  description: "Professional commercial general contracting services in Staten Island. Business renovations, repairs, and construction. Licensed, insured, and 5-star rated.",
+};
 
 export default function GeneralContractingCommercial() {
   return (
