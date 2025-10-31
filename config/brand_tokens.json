@@ -1,0 +1,35 @@
+{
+  "colors": {
+    "primary": "#1B5377",
+    "primaryDark": "#245376",
+    "secondary": "#6576a1",
+    "tertiary": "#d48620",
+    "gradient": {
+      "from": "#1B5377",
+      "to": "#6576a1"
+    },
+    "blueTeal": {
+      "blue": "#0066CC",
+      "cyan": "#06B6D4",
+      "teal": "#14B8A6"
+    },
+    "background": "#FFFFFF",
+    "text": {
+      "primary": "#282828",
+      "secondary": "#666666"
+    }
+  },
+  "fonts": {
+    "heading": "Oswald, sans-serif",
+    "body": "Raleway, Poppins, sans-serif"
+  },
+  "borderRadius": {
+    "button": "9999px",
+    "panel": "1rem"
+  },
+  "logo": {
+    "text": "Wash Kings",
+    "gradient": "from-blue-600 to-cyan-600"
+  }
+}
+

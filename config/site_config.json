@@ -1,0 +1,29 @@
+{
+  "jobberUrl": "https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec",
+  "phoneNumber": "(917) 397-0128",
+  "phoneTel": "tel:19173970128",
+  "email": "statenislandwashkings@gmail.com",
+  "location": "Staten Island, NY",
+  "seasonalTheme": "default",
+  "themes": {
+    "default": {
+      "backgroundImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80&auto=format&fit=crop",
+      "audio": null
+    },
+    "christmas": {
+      "backgroundImage": "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&q=80&auto=format&fit=crop",
+      "audio": "/christmas-music-loop.mp3"
+    }
+  },
+  "seo": {
+    "title": "Staten Island Wash Kings | Book Your Service in 30 Seconds",
+    "description": "Instant exterior cleaning across Staten Island. Power Washing, Holiday Lights, Roofing & General Contracting. Licensed & Insured. Book now!",
+    "siteName": "Staten Island Wash Kings"
+  },
+  "trust": {
+    "licensed": true,
+    "reviews": "80+",
+    "rating": "5"
+  }
+}
+

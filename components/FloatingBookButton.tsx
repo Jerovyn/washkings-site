@@ -1,11 +1,11 @@
 "use client";
 
-export default function FloatingBookButton() {
-  const JOBBER_BOOKING_URL = "https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec";
+import siteConfig from "@/config/site_config.json";
 
+export default function FloatingBookButton() {
   return (
     <a
-      href={JOBBER_BOOKING_URL}
+      href={siteConfig.jobberUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-24 right-6 z-50 bg-gradient-to-r from-cyan-500 to-blue-600 text-white w-16 h-16 rounded-full shadow-2xl hover:shadow-cyan-500/50 flex items-center justify-center hover:scale-110 transition-all duration-300 group md:bottom-28 md:right-8 md:w-20 md:h-20"

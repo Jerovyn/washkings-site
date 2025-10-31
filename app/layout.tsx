@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import siteConfig from "@/config/site_config.json";
 
 export const metadata: Metadata = {
   title: {
-    default: "Staten Island Wash Kings | #1 Power Washing Company",
-    template: "%s | Staten Island Wash Kings"
+    default: siteConfig.seo.title,
+    template: `%s | ${siteConfig.seo.siteName}`
   },
-  description: "Quality Driven & Satisfaction Guaranteed. Fully Licensed & Insured. Serving Staten Island with Power Washing, Holiday Lights, General Contracting, and Roofing services. Rated 5 stars by 80+ customers.",
+  description: siteConfig.seo.description,
   keywords: [
     "power washing Staten Island",
     "pressure washing Staten Island",
@@ -17,21 +18,23 @@ export const metadata: Metadata = {
     "roofing Staten Island",
     "exterior cleaning Staten Island",
     "driveway cleaning Staten Island",
-    "soft washing Staten Island"
+    "soft washing Staten Island",
+    "instant booking",
+    "same day service Staten Island"
   ],
-  authors: [{ name: "Staten Island Wash Kings" }],
-  creator: "Staten Island Wash Kings",
-  publisher: "Staten Island Wash Kings",
+  authors: [{ name: siteConfig.seo.siteName }],
+  creator: siteConfig.seo.siteName,
+  publisher: siteConfig.seo.siteName,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://statenislandwashkings.com",
-    siteName: "Staten Island Wash Kings",
-    title: "Staten Island Wash Kings | #1 Power Washing Company",
-    description: "Quality Driven & Satisfaction Guaranteed. Fully Licensed & Insured. Serving Staten Island with Power Washing, Holiday Lights, General Contracting, and Roofing services.",
+    siteName: siteConfig.seo.siteName,
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80",
+        url: "https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg",
         width: 1200,
         height: 630,
         alt: "Staten Island Wash Kings - Power Washing Services"
@@ -40,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Staten Island Wash Kings | #1 Power Washing Company",
-    description: "Quality Driven & Satisfaction Guaranteed. Fully Licensed & Insured.",
-    images: ["https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80"]
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+    images: ["https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"]
   },
   robots: {
     index: true,
@@ -54,10 +57,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    // Add Google Search Console verification if you have it
-    // google: "your-google-verification-code",
   },
 };
 
