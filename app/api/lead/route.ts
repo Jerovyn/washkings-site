@@ -2,32 +2,49 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const data = await request.json();
     
-    // Log the lead data (in production, you would send this to your CRM, email service, etc.)
-    console.log("New Lead Submission:", JSON.stringify(body, null, 2));
+    // Log the lead submission with detailed information
+    console.log("=== NEW LEAD SUBMISSION ===");
+    console.log("Timestamp:", new Date().toISOString());
+    console.log("Name:", data.name);
+    console.log("Email:", data.email);
+    console.log("Phone:", data.phone);
+    console.log("Service Type:", data.serviceType || "Not specified");
+    console.log("Client Type:", data.clientType || "Not specified");
+    console.log("Message:", data.message || "(No message provided)");
+    console.log("Full Data:", JSON.stringify(data, null, 2));
+    console.log("===========================");
+
+    // TODO: Integrate with your preferred service:
+    // - Send email via SendGrid, Resend, or similar
+    // - Save to database (MongoDB, PostgreSQL, etc.)
+    // - Send to CRM (HubSpot, Salesforce, etc.)
+    // - Send to Jobber booking system
+    // - Send to Google Sheets via API
     
-    // Here you would typically:
-    // 1. Send to CRM (Salesforce, HubSpot, etc.)
-    // 2. Send email notification
-    // 3. Store in database
-    // 4. Trigger webhook to third-party service
-    
-    // For now, we'll just log it and return success
-    return NextResponse.json(
-      { 
-        success: true, 
-        message: "Lead submitted successfully",
-        data: body 
-      },
-      { status: 200 }
-    );
+    // Example integration placeholder:
+    // await sendEmail({
+    //   to: "statenislandwashkings@gmail.com",
+    //   subject: `New Lead: ${data.serviceType || "General"} - ${data.clientType || "Not specified"}`,
+    //   body: `New lead form submission:\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${data.serviceType || "N/A"}\nType: ${data.clientType || "N/A"}\nMessage: ${data.message || "N/A"}\n\nSubmitted: ${new Date().toLocaleString()}`
+    // });
+
+    return NextResponse.json({ 
+      success: true, 
+      message: "Thank you! We'll contact you soon.",
+      data: {
+        submittedAt: new Date().toISOString(),
+        leadId: `LEAD-${Date.now()}`,
+        ...data
+      }
+    });
   } catch (error) {
-    console.error("Error processing lead:", error);
+    console.error("Error processing lead form submission:", error);
     return NextResponse.json(
       { 
         success: false, 
-        message: "Failed to process lead submission" 
+        message: "Failed to process lead submission. Please call us at (917) 397-0128." 
       },
       { status: 500 }
     );
