@@ -26,7 +26,7 @@ export default function GoogleReviews() {
             <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
           </div>
           <p className="text-gray-700 text-sm">
-            "Great high quality and speedy service! Super professional! Best price around! Highly recommend!"
+            &quot;Great high quality and speedy service! Super professional! Best price around! Highly recommend!&quot;
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function GoogleReviews() {
             <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
           </div>
           <p className="text-gray-700 text-sm">
-            "I worked with Steven from Staten Island wash kings and it was a great experience. Very professional."
+            &quot;I worked with Steven from Staten Island wash kings and it was a great experience. Very professional.&quot;
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function GoogleReviews() {
             <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
           </div>
           <p className="text-gray-700 text-sm">
-            "These guys are amazing! They go above and beyond. Everything looks like new. They are the best!!!"
+            &quot;These guys are amazing! They go above and beyond. Everything looks like new. They are the best!!!&quot;
           </p>
         </div>
       </div>
