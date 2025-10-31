@@ -1,63 +1,27 @@
 import Footer from "@/components/Footer";
 import ServiceBox from "@/components/ServiceBox";
+import TrustSignals from "@/components/TrustSignals";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
       <main className="flex-grow">
-        {/* Futuristic Hero Section with Stock Image */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80')"
-            }}
-          />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-cyan-500/20 to-teal-400/30" />
-          {/* Animated Grid Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
-            <div className="inline-block mb-6 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-              <span className="text-white text-sm font-semibold">🔰 Fully Licensed & Insured 🔰</span>
-            </div>
-            <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl">
-              Staten Island&apos;s #1<br />
-              <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300 bg-clip-text text-transparent">
-                Power Washing Company
-              </span>
+        {/* Minimal Top Banner - Optional */}
+        <section className="py-6 bg-white/80 backdrop-blur-sm border-b border-gray-200/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              Staten Island Wash Kings
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto font-light">
-              Quality Driven & Satisfaction Guaranteed
-            </p>
-            <div className="inline-block mb-8 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg">
-              <span className="text-gray-900 font-bold text-lg">🎉 New Customer Special: Get $25 Off! 🎉</span>
-            </div>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              From driveways to decks, we bring your property back to life — safely, beautifully, and affordably.
-            </p>
-            <div className="flex items-center justify-center gap-2 mb-10">
-              <div className="flex text-yellow-300">⭐⭐⭐⭐⭐</div>
-              <span className="text-white font-semibold">Rated 5 Stars by 55+ Happy Customers</span>
-            </div>
-            <a
-              href="tel:19173970128"
-              className="inline-block bg-white text-blue-600 px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
-            >
-              📞 Get My Free Estimate
-            </a>
           </div>
         </section>
 
-        {/* Futuristic Service Boxes Section */}
-        <section className="py-24 bg-gradient-to-b from-slate-50 to-white relative">
+        {/* Service Directory - FIRST (Primary Focus) */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-5xl font-extrabold text-center text-gray-900 mb-16 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 md:mb-16 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               What Do You Need Today?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               <ServiceBox
                 service="Holiday Lights"
                 icon="✨"
@@ -94,7 +58,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Futuristic Contact Section */}
+        {/* Trust Signals Section - SECOND */}
+        <TrustSignals />
+
+        {/* Futuristic Contact Section - THIRD */}
         <section className="relative py-24 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
