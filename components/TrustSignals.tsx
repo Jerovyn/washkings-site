@@ -1,6 +1,7 @@
 "use client";
 
 import TrustindexWidget from "./TrustindexWidget";
+import GoogleReviews from "./GoogleReviews";
 
 export default function TrustSignals() {
   return (
@@ -9,6 +10,11 @@ export default function TrustSignals() {
         {/* Trustindex Widget - Official Embed */}
         <div className="mb-12">
           <TrustindexWidget />
+        </div>
+
+        {/* Google Reviews Carousel */}
+        <div className="mb-12">
+          <GoogleReviews />
         </div>
 
         {/* Additional Trust Signals */}

@@ -1,14 +1,18 @@
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import ServiceBox from "@/components/ServiceBox";
 import TrustSignals from "@/components/TrustSignals";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingBookButton from "@/components/FloatingBookButton";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <Header />
       <main className="flex-grow">
-        {/* Hero Section with Background Image */}
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Hero Section - Clean Design */}
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
           {/* Background Image - Real work from site */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -21,44 +25,66 @@ export default function Home() {
           {/* Animated Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-            <div className="inline-block mb-6 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
+            {/* Trust Badge with Glassmorphism */}
+            <div className="inline-block mb-6 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg">
               <span className="text-white text-sm font-semibold">🔰 Fully Licensed & Insured 🔰</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl">
+            
+            {/* Main Heading */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 drop-shadow-2xl">
               Staten Island&apos;s #1<br />
               <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-teal-300 bg-clip-text text-transparent">
                 Power Washing Company
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto font-light">
+            
+            {/* Tagline */}
+            <p className="text-lg md:text-xl text-white/95 mb-6 max-w-2xl mx-auto font-medium">
               Quality Driven & Satisfaction Guaranteed
             </p>
-            <div className="inline-block mb-8 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-lg">
-              <span className="text-gray-900 font-bold text-lg">🎉 New Customer Special: Get $25 Off! 🎉</span>
+            
+            {/* Special Offer Badge */}
+            <div className="inline-block mb-6 px-6 py-2.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 shadow-xl">
+              <span className="text-gray-900 font-bold">🎉 New Customer Special: Get $25 Off! 🎉</span>
             </div>
-            <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              From driveways to decks, we bring your property back to life — safely, beautifully, and affordably.
-            </p>
-            <div className="flex items-center justify-center gap-2 mb-10">
-              <div className="flex text-yellow-300">⭐⭐⭐⭐⭐</div>
-              <span className="text-white font-semibold">Rated 5 Stars by 80+ Happy Customers</span>
+            
+            {/* Phone Number - Prominent */}
+            <div className="mb-8">
+              <a
+                href="tel:19173970128"
+                className="inline-flex items-center gap-2 text-white text-xl md:text-2xl font-bold hover:text-cyan-300 transition-colors"
+              >
+                <span>📞</span>
+                <span>(917) 397-0128</span>
+              </a>
+              <p className="text-white/80 text-sm mt-2">Same-day response guaranteed</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            {/* Primary CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
                 href="https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-blue-600 px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
               >
-                ⚡ Book Now - Instant Booking
+                <span>⚡</span>
+                <span>Book Now - Instant Booking</span>
               </a>
               <a
-                href="tel:19173970128"
-                className="inline-block bg-blue-500/90 backdrop-blur-sm border-2 border-white text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-600 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-lg border-2 border-white/30 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/30 transition-all duration-300 shadow-xl hover:scale-105 transform"
               >
-                📞 Call (917) 397-0128
+                <span>📋</span>
+                <span>View Services</span>
               </a>
+            </div>
+            
+            {/* Rating Badge */}
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex text-yellow-300">⭐⭐⭐⭐⭐</div>
+              <span className="text-white font-semibold">Rated 5 Stars by 80+ Happy Customers</span>
             </div>
           </div>
         </section>
@@ -86,8 +112,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Service Directory - PRIMARY FOCUS */}
-        <section id="services" className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 relative">
+        {/* Service Directory - PRIMARY FOCUS (Immediately Below Hero) */}
+        <section id="services" className="py-12 md:py-16 -mt-8 bg-gradient-to-b from-white to-slate-50 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               What Do You Need Today?
@@ -97,37 +123,114 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               <ServiceBox
-                service="Holiday Lights"
-                icon="✨"
-                residentialUrl="/holiday-lights/residential"
-                commercialUrl="/holiday-lights/commercial"
-                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-13-1-scaled.jpg"
-                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-16-scaled.jpg"
-              />
-              <ServiceBox
                 service="Power Washing"
                 icon="💦"
+                tagline="Restore your home's curb appeal"
                 residentialUrl="/power-washing/residential"
                 commercialUrl="/power-washing/commercial"
                 residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"
                 commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-1-scaled.jpg"
               />
               <ServiceBox
-                service="General Contracting"
-                icon="🔨"
-                residentialUrl="/general-contracting/residential"
-                commercialUrl="/general-contracting/commercial"
-                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-8-scaled.jpg"
-                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-9-scaled.jpg"
+                service="Holiday Lights"
+                icon="✨"
+                tagline="Transform your property with festive lighting"
+                residentialUrl="/holiday-lights/residential"
+                commercialUrl="/holiday-lights/commercial"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-13-1-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-16-scaled.jpg"
               />
               <ServiceBox
                 service="Roofing"
                 icon="🏠"
+                tagline="Protect and restore your roof"
                 residentialUrl="/roofing/residential"
                 commercialUrl="/roofing/commercial"
                 residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-1-scaled.jpg"
                 commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/before-after-new-4-scaled.jpg"
               />
+              <ServiceBox
+                service="General Contracting"
+                icon="🔨"
+                tagline="Complete property maintenance solutions"
+                residentialUrl="/general-contracting/residential"
+                commercialUrl="/general-contracting/commercial"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-8-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-9-scaled.jpg"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Before/After Gallery - Integrated */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                See Our Work in Action
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Drag the slider to see real transformations from actual Staten Island customers
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-100">
+                <BeforeAfterSlider
+                  beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/Before-front-driveway-2-scaled.jpg"
+                  afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"
+                  beforeLabel="Before"
+                  afterLabel="After"
+                  alt="Driveway restoration transformation"
+                />
+                <div className="p-6">
+                  <div className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-3">
+                    Power Washing
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Driveway Restoration</h3>
+                  <p className="text-gray-600">Complete driveway cleaning and restoration</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-100">
+                <BeforeAfterSlider
+                  beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/Deck-cleaning-dirty-scaled.jpg"
+                  afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/deck-clean-not-dirty-scaled.jpg"
+                  beforeLabel="Before"
+                  afterLabel="After"
+                  alt="Deck cleaning transformation"
+                />
+                <div className="p-6">
+                  <div className="inline-block px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-sm font-semibold mb-3">
+                    Power Washing
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Deck Cleaning</h3>
+                  <p className="text-gray-600">Professional deck restoration</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-100">
+                <BeforeAfterSlider
+                  beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-2-scaled.jpg"
+                  afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-1-scaled.jpg"
+                  beforeLabel="Before"
+                  afterLabel="After"
+                  alt="House exterior soft washing transformation"
+                />
+                <div className="p-6">
+                  <div className="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-semibold mb-3">
+                    Soft Washing
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">House Exterior</h3>
+                  <p className="text-gray-600">Safely restore your home&apos;s siding</p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-12">
+              <a
+                href="/gallery"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+              >
+                View Full Gallery
+                <span>→</span>
+              </a>
             </div>
           </div>
         </section>
@@ -140,36 +243,29 @@ export default function Home() {
                 How We Work
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Our simple 4-step process makes getting your property cleaned easy and stress-free.
+                Our simple 3-step process makes getting your property cleaned easy and stress-free.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="text-center">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 shadow-lg">
                   1
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Request a Quote</h3>
-                <p className="text-gray-600">Fill out our form or call us for a free, no-obligation estimate.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Book or Request Quote</h3>
+                <p className="text-gray-600">Book instantly online or request a free, no-obligation quote.</p>
               </div>
               <div className="text-center">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 shadow-lg">
                   2
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Schedule Service</h3>
-                <p className="text-gray-600">We&apos;ll work around your schedule with flexible appointment times.</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">We Service Your Property</h3>
+                <p className="text-gray-600">Our expert team arrives on time and completes the job professionally.</p>
               </div>
               <div className="text-center">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 shadow-lg">
                   3
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">We Clean</h3>
-                <p className="text-gray-600">Our expert team arrives on time and completes the job professionally.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4 shadow-lg">
-                  4
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">You Love It</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">You Love the Results</h3>
                 <p className="text-gray-600">Enjoy your transformed property with our satisfaction guarantee.</p>
               </div>
             </div>
@@ -340,6 +436,7 @@ export default function Home() {
         </section>
       </main>
       <FloatingCallButton />
+      <FloatingBookButton />
       <Footer />
     </div>
   );

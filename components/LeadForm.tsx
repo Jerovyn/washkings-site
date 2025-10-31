@@ -12,6 +12,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
     name: "",
     email: "",
     phone: "",
+    address: "",
     message: "",
     serviceType: serviceType,
     clientType: clientType,
@@ -39,6 +40,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
           name: "",
           email: "",
           phone: "",
+          address: "",
           message: "",
           serviceType: serviceType,
           clientType: clientType,
@@ -111,6 +113,21 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="address" className="block text-sm font-medium text-gray-900 mb-2">
+            Address *
+          </label>
+          <input
+            type="text"
+            id="address"
+            required
+            value={formData.address}
+            onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+            placeholder="Property address"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>

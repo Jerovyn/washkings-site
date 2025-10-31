@@ -7,6 +7,7 @@ import QuickBookButton from "./QuickBookButton";
 interface ServiceBoxProps {
   service: string;
   icon: string;
+  tagline: string;
   residentialUrl: string;
   commercialUrl: string;
   residentialImage?: string;
@@ -17,7 +18,8 @@ const JOBBER_BOOKING_URL = "https://clienthub.getjobber.com/booking/4384d7ab-b4e
 
 export default function ServiceBox({ 
   service, 
-  icon, 
+  icon,
+  tagline,
   residentialUrl, 
   commercialUrl,
   residentialImage = "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
@@ -41,12 +43,15 @@ export default function ServiceBox({
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:32px_32px]" />
           </div>
+          {/* Glassmorphism overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm" />
           <div className="relative z-10">
             <div className="text-7xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
               {icon}
             </div>
             <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">{service}</h3>
-            <p className="text-white/90 text-lg">Hover or tap to explore</p>
+            <p className="text-white/90 text-lg mb-2">{tagline}</p>
+            <p className="text-white/80 text-sm">Hover or tap to explore</p>
           </div>
         </div>
       </div>
@@ -67,7 +72,7 @@ export default function ServiceBox({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             <div className="relative h-full flex flex-col items-center justify-end p-6">
-              <div className="bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-4 border border-white/20">
+              <div className="bg-white/20 backdrop-blur-lg rounded-full px-6 py-3 mb-4 border border-white/30 shadow-lg">
                 <span className="text-2xl">🏠</span>
               </div>
               <h4 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">Residential</h4>
@@ -95,7 +100,7 @@ export default function ServiceBox({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             <div className="relative h-full flex flex-col items-center justify-end p-6">
-              <div className="bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-4 border border-white/20">
+              <div className="bg-white/20 backdrop-blur-lg rounded-full px-6 py-3 mb-4 border border-white/30 shadow-lg">
                 <span className="text-2xl">🚚</span>
               </div>
               <h4 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">Commercial</h4>

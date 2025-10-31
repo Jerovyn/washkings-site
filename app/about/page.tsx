@@ -1,5 +1,8 @@
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingBookButton from "@/components/FloatingBookButton";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,6 +13,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <Header />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 text-white">
@@ -196,6 +200,8 @@ export default function About() {
           </div>
         </section>
       </main>
+      <FloatingCallButton />
+      <FloatingBookButton />
       <Footer />
     </div>
   );

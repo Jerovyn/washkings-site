@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingBookButton from "@/components/FloatingBookButton";
 
 export const metadata: Metadata = {
   title: "Gallery | Staten Island Wash Kings - Before & After Photos",
@@ -98,6 +101,7 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <Header />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 text-white">
@@ -169,6 +173,8 @@ export default function Gallery() {
           </div>
         </section>
       </main>
+      <FloatingCallButton />
+      <FloatingBookButton />
       <Footer />
     </div>
   );

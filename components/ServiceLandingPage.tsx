@@ -1,8 +1,10 @@
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import LeadForm from "@/components/LeadForm";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import QuickBookButton from "@/components/QuickBookButton";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import FloatingBookButton from "@/components/FloatingBookButton";
 
 interface ServiceLandingPageProps {
   title: string;
@@ -25,6 +27,7 @@ export default function ServiceLandingPage({
 }: ServiceLandingPageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <Header />
       <main className="flex-grow">
         {/* Minimal Top Banner */}
         <section className="py-4 bg-white/80 backdrop-blur-sm border-b border-gray-200/50">
@@ -265,6 +268,7 @@ export default function ServiceLandingPage({
         </section>
       </main>
       <FloatingCallButton />
+      <FloatingBookButton />
       <Footer />
     </div>
   );
