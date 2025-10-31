@@ -56,7 +56,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
 
   return (
     <div id="lead-form" className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
-      <h2 className="text-3xl font-bold text-text-primary mb-6 text-center">
+      <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
         Get Your Free Estimate
       </h2>
       
@@ -74,7 +74,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
             Name *
           </label>
           <input
@@ -88,7 +88,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
             Email *
           </label>
           <input
@@ -102,7 +102,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-text-primary mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-2">
             Phone *
           </label>
           <input
@@ -116,7 +116,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
         </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
                     Message / Project Details
                   </label>
                   <textarea
