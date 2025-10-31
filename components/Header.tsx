@@ -5,31 +5,33 @@ import siteConfig from "@/config/site_config.json";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo Left */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl md:text-2xl font-extrabold bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent drop-shadow-lg">
-              Wash Kings
+            <span className="text-lg md:text-xl font-bold uppercase tracking-wider text-white drop-shadow-lg">
+              EXTERIOR CLEANING CO
             </span>
           </Link>
 
           {/* Action Buttons Right */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a
               href={siteConfig.phoneTel}
-              className="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-sm font-semibold hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+              className="px-4 py-2 bg-black/60 backdrop-blur-md border border-white/30 text-white text-sm font-bold uppercase tracking-wide hover:bg-black/80 transition-all duration-300"
+              aria-label="Call Now"
             >
-              Call Now
+              CALL
             </a>
             <a
               href={siteConfig.jobberUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-5 py-2.5 rounded-full bg-white text-blue-600 text-sm font-bold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+              className="px-4 py-2 bg-black/60 backdrop-blur-md border border-white/30 text-white text-sm font-bold uppercase tracking-wide hover:bg-black/80 transition-all duration-300"
+              aria-label="Book Now"
             >
-              ⚡ Book Now
+              BOOK
             </a>
           </div>
         </div>

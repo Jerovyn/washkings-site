@@ -4,14 +4,14 @@
   "phoneTel": "tel:19173970128",
   "email": "statenislandwashkings@gmail.com",
   "location": "Staten Island, NY",
-  "seasonalTheme": "default",
+  "seasonalTheme": "christmas",
   "themes": {
     "default": {
       "backgroundImage": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80&auto=format&fit=crop",
       "audio": null
     },
     "christmas": {
-      "backgroundImage": "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&q=80&auto=format&fit=crop",
+      "backgroundImage": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80&auto=format&fit=crop",
       "audio": "/christmas-music-loop.mp3"
     }
   },
