@@ -62,7 +62,7 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
       
       {submitStatus === "success" && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-          Thank you! We'll contact you soon.
+          Thank you! We&apos;ll contact you soon.
         </div>
       )}
       
