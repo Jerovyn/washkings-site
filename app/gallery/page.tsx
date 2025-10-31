@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Gallery | Staten Island Wash Kings - Before & After Photos",

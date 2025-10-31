@@ -115,18 +115,19 @@ export default function LeadForm({ serviceType = "", clientType = "" }: LeadForm
           />
         </div>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-        </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+                    Message / Project Details
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell us about your project, property size, or any specific requirements..."
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                  />
+                </div>
 
         <button
           type="submit"
