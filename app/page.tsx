@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import ServiceBox from "@/components/ServiceBox";
 import TrustSignals from "@/components/TrustSignals";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 export default function Home() {
   return (
@@ -8,11 +9,11 @@ export default function Home() {
       <main className="flex-grow">
         {/* Hero Section with Background Image */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
+          {/* Background Image - Real work from site */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80')"
+              backgroundImage: "url('https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg')"
             }}
           />
           {/* Gradient Overlay */}
@@ -45,16 +46,18 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:19173970128"
+                href="https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-white text-blue-600 px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
               >
-                📞 Get My Free Estimate
+                ⚡ Book Now - Instant Booking
               </a>
               <a
-                href="#services"
+                href="tel:19173970128"
                 className="inline-block bg-blue-500/90 backdrop-blur-sm border-2 border-white text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-600 transition-all duration-300 shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 transform"
               >
-                View Our Services
+                📞 Call (917) 397-0128
               </a>
             </div>
           </div>
@@ -98,32 +101,32 @@ export default function Home() {
                 icon="✨"
                 residentialUrl="/holiday-lights/residential"
                 commercialUrl="/holiday-lights/commercial"
-                residentialImage="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&q=80"
-                commercialImage="https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-13-1-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/before-after-new-16-scaled.jpg"
               />
               <ServiceBox
                 service="Power Washing"
                 icon="💦"
                 residentialUrl="/power-washing/residential"
                 commercialUrl="/power-washing/commercial"
-                residentialImage="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
-                commercialImage="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-1-scaled.jpg"
               />
               <ServiceBox
                 service="General Contracting"
                 icon="🔨"
                 residentialUrl="/general-contracting/residential"
                 commercialUrl="/general-contracting/commercial"
-                residentialImage="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                commercialImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-8-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Before-after-new-9-scaled.jpg"
               />
               <ServiceBox
                 service="Roofing"
                 icon="🏠"
                 residentialUrl="/roofing/residential"
                 commercialUrl="/roofing/commercial"
-                residentialImage="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80"
-                commercialImage="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80"
+                residentialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-1-scaled.jpg"
+                commercialImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/before-after-new-4-scaled.jpg"
               />
             </div>
           </div>
@@ -300,18 +303,20 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <a
-                href="tel:19173970128"
+                href="https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform flex items-center justify-center gap-2"
+              >
+                <span>⚡</span>
+                <span>Book Now - Instant</span>
+              </a>
+              <a
+                href="tel:19173970128"
+                className="group bg-blue-500/90 backdrop-blur-sm border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform flex items-center justify-center gap-2"
               >
                 <span>📞</span>
                 <span>Call: (917) 397-0128</span>
-              </a>
-              <a
-                href="mailto:statenislandwashkings@gmail.com"
-                className="group bg-blue-500/90 backdrop-blur-sm border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform flex items-center justify-center gap-2"
-              >
-                <span>📧</span>
-                <span>Email Us</span>
               </a>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-6 text-blue-100">
@@ -334,6 +339,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <FloatingCallButton />
       <Footer />
     </div>
   );

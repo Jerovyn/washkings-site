@@ -1,5 +1,8 @@
 import Footer from "@/components/Footer";
 import LeadForm from "@/components/LeadForm";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import QuickBookButton from "@/components/QuickBookButton";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 interface ServiceLandingPageProps {
   title: string;
@@ -43,12 +46,71 @@ export default function ServiceLandingPage({
               <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
                 {description}
               </p>
-              <a
-                href="#lead-form"
-                className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
-              >
-                📞 Get My Free Estimate
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <QuickBookButton serviceType={serviceType} clientType={clientType} variant="primary" size="lg" />
+                <a
+                  href="#lead-form"
+                  className="inline-block bg-white border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                >
+                  📝 Get Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Before/After Showcase */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                See Our Work in Action
+              </h2>
+              <p className="text-xl text-gray-600">
+                Drag the slider to see real transformations
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {serviceType === "Power Washing" && (
+                <>
+                  <div>
+                    <BeforeAfterSlider
+                      beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/Deck-cleaning-dirty-scaled.jpg"
+                      afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/07/deck-clean-not-dirty-scaled.jpg"
+                      alt="Deck cleaning transformation"
+                    />
+                    <p className="text-center mt-4 font-semibold text-gray-900">Deck Restoration</p>
+                  </div>
+                  <div>
+                    <BeforeAfterSlider
+                      beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/power-washing-stone-blocks-2-1-scaled.jpg"
+                      afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/power-washing-stone-blocks-1-scaled.jpg"
+                      alt="Stone block cleaning transformation"
+                    />
+                    <p className="text-center mt-4 font-semibold text-gray-900">Stone Block Cleaning</p>
+                  </div>
+                </>
+              )}
+              {(serviceType === "Power Washing" || serviceType === "General Contracting") && (
+                <div>
+                  <BeforeAfterSlider
+                    beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/Before-front-driveway-2-scaled.jpg"
+                    afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"
+                    alt="Driveway restoration transformation"
+                  />
+                  <p className="text-center mt-4 font-semibold text-gray-900">Driveway Restoration</p>
+                </div>
+              )}
+              {serviceType === "Power Washing" && (
+                <div>
+                  <BeforeAfterSlider
+                    beforeImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-2-scaled.jpg"
+                    afterImage="https://statenislandwashkings.com/wp-content/uploads/2024/05/Soft-washing-new-1-scaled.jpg"
+                    alt="House exterior soft washing transformation"
+                  />
+                  <p className="text-center mt-4 font-semibold text-gray-900">House Exterior Soft Washing</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -185,25 +247,24 @@ export default function ServiceLandingPage({
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8 text-blue-100">
-              Get your free estimate today and transform your property!
+              Book instantly or get your free estimate today!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <QuickBookButton serviceType={serviceType} clientType={clientType} variant="secondary" size="lg" />
               <a
                 href="tel:19173970128"
                 className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
-                📞 Call Now: (917) 397-0128
-              </a>
-              <a
-                href="#lead-form"
-                className="inline-block bg-blue-500 border-2 border-white text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
-              >
-                📝 Get Free Estimate
+                📞 Call: (917) 397-0128
               </a>
             </div>
+            <p className="mt-6 text-blue-100 text-sm">
+              Prefer a detailed quote? Fill out the form above or call us directly.
+            </p>
           </div>
         </section>
       </main>
+      <FloatingCallButton />
       <Footer />
     </div>
   );
