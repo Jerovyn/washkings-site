@@ -41,7 +41,7 @@ export default function AudioToggle() {
         // Auto-play blocked
       });
     }
-  }, [isMuted]);
+  }, [isMuted, hasInteracted]);
 
   const handleToggle = () => {
     setIsMuted(!isMuted);
