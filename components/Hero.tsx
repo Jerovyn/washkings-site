@@ -11,14 +11,20 @@ export default function Hero() {
     setIsMounted(true);
   }, []);
 
-  // Try WebP first, fallback to PNG
+  // Try WebP first, fallback to PNG, then to a stock placeholder
   const [backgroundSrc, setBackgroundSrc] = useState<string>("/seasonal/Holiday_lights_christmas_trees.png");
   
   useEffect(() => {
     // Check if WebP is available
     const webpImg = new window.Image();
     webpImg.onload = () => setBackgroundSrc("/seasonal/Holiday_lights_christmas_trees.webp");
-    webpImg.onerror = () => setBackgroundSrc("/seasonal/Holiday_lights_christmas_trees.png");
+    webpImg.onerror = () => {
+      // Check if PNG is available, otherwise use stock image
+      const pngImg = new window.Image();
+      pngImg.onload = () => setBackgroundSrc("/seasonal/Holiday_lights_christmas_trees.png");
+      pngImg.onerror = () => setBackgroundSrc("https://images.unsplash.com/photo-1457732815361-daa98277e9c8?w=1920&q=80&auto=format&fit=crop");
+      pngImg.src = "/seasonal/Holiday_lights_christmas_trees.png";
+    };
     webpImg.src = "/seasonal/Holiday_lights_christmas_trees.webp";
   }, []);
 
