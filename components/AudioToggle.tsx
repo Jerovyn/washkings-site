@@ -50,6 +50,9 @@ export default function AudioToggle() {
       return;
     }
 
+    // Set volume to 0.3 (30%)
+    audioRef.current.volume = 0.3;
+
     if (isMuted) {
       audioRef.current.pause();
     } else if (hasInteracted) {
@@ -75,7 +78,6 @@ export default function AudioToggle() {
         src="/audio/merry-christmas-happy-holiday-music-427692.mp3"
         loop
         preload="metadata"
-        volume={0.3}
       />
       <button
         onClick={handleToggle}
