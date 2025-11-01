@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import siteConfig from "@/config/site_config.json";
+import { SEO, getLocalBusinessSchema } from "@/lib/seo";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600", "800", "900"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.seo.title,
-    template: `%s | ${siteConfig.seo.siteName}`
+    default: SEO.title,
+    template: `%s | ${SEO.siteName}`,
   },
-  description: siteConfig.seo.description,
+  description: SEO.description,
   keywords: [
     "power washing Staten Island",
     "pressure washing Staten Island",
@@ -17,35 +25,33 @@ export const metadata: Metadata = {
     "general contracting Staten Island",
     "roofing Staten Island",
     "exterior cleaning Staten Island",
-    "driveway cleaning Staten Island",
-    "soft washing Staten Island",
     "instant booking",
-    "same day service Staten Island"
+    "same day service Staten Island",
   ],
-  authors: [{ name: siteConfig.seo.siteName }],
-  creator: siteConfig.seo.siteName,
-  publisher: siteConfig.seo.siteName,
+  authors: [{ name: SEO.siteName }],
+  creator: SEO.siteName,
+  publisher: SEO.siteName,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://statenislandwashkings.com",
-    siteName: siteConfig.seo.siteName,
-    title: siteConfig.seo.title,
-    description: siteConfig.seo.description,
+    url: SEO.url,
+    siteName: SEO.siteName,
+    title: SEO.title,
+    description: SEO.description,
     images: [
       {
         url: "https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg",
         width: 1200,
         height: 630,
-        alt: "Exterior Cleaning Co - Power Washing Services"
-      }
-    ]
+        alt: `${SEO.siteName} - Book Services Instantly`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.seo.title,
-    description: siteConfig.seo.description,
-    images: ["https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"]
+    title: SEO.title,
+    description: SEO.description,
+    images: ["https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg"],
   },
   robots: {
     index: true,
@@ -58,6 +64,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  manifest: "/manifest.webmanifest",
+  themeColor: "#0b2236",
 };
 
 export default function RootLayout({
@@ -65,75 +73,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const localBusiness = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Exterior Cleaning Co",
-    "image": "https://statenislandwashkings.com/wp-content/uploads/2024/02/after-front-driveway-1-scaled.jpg",
-    "@id": "https://statenislandwashkings.com",
-    "url": "https://statenislandwashkings.com",
-    "telephone": "+13475084562",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Staten Island",
-      "addressRegion": "NY",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.5795,
-      "longitude": -74.1511
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "08:00",
-      "closes": "20:00"
-    },
-    "sameAs": [
-      "https://www.instagram.com/statenislandwashkings/",
-      "https://www.youtube.com/@StatenIslandwashkings/videos"
-    ],
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Staten Island"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "New York"
-      }
-    ],
-    "serviceType": [
-      "Power Washing",
-      "Holiday Lights Installation",
-      "Roofing",
-      "General Contracting"
-    ]
-  };
+  const localBusiness = getLocalBusinessSchema();
 
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
-        <link rel="canonical" href="https://statenislandwashkings.com" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#1dd7e0" />
+        <link rel="canonical" href={SEO.url} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }

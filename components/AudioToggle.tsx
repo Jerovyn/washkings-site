@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { currentConfig } from "@/lib/season";
 
 export default function AudioToggle() {
   const [isMuted, setIsMuted] = useState(true);
@@ -10,14 +11,14 @@ export default function AudioToggle() {
 
   useEffect(() => {
     // Check localStorage for saved preference
-    const savedPreference = localStorage.getItem("audio_enabled_v1");
+    const savedPreference = localStorage.getItem("extco_audio_v1");
     if (savedPreference === "true") {
       setIsMuted(false);
     }
 
-    // Show toggle if audio file exists
+    // Check if audio file exists
     const audio = new Audio();
-    audio.src = "/audio/merry-christmas-happy-holiday-music-427692.mp3";
+    audio.src = currentConfig.audio;
     
     audio.addEventListener("loadeddata", () => {
       setIsVisible(true);
@@ -26,17 +27,17 @@ export default function AudioToggle() {
     audio.addEventListener("error", () => {
       setIsVisible(false);
     });
-  }, []);
 
-  // Track user interaction
-  useEffect(() => {
+    // Track user interaction
     const handleInteraction = () => {
       setHasInteracted(true);
       document.removeEventListener("click", handleInteraction);
       document.removeEventListener("touchstart", handleInteraction);
     };
+    
     document.addEventListener("click", handleInteraction);
     document.addEventListener("touchstart", handleInteraction);
+
     return () => {
       document.removeEventListener("click", handleInteraction);
       document.removeEventListener("touchstart", handleInteraction);
@@ -64,7 +65,7 @@ export default function AudioToggle() {
 
   const handleToggle = () => {
     setIsMuted(!isMuted);
-    localStorage.setItem("audio_enabled_v1", String(!isMuted));
+    localStorage.setItem("extco_audio_v1", String(!isMuted));
   };
 
   if (!isVisible) {
@@ -75,13 +76,13 @@ export default function AudioToggle() {
     <>
       <audio
         ref={audioRef}
-        src="/audio/merry-christmas-happy-holiday-music-427692.mp3"
+        src={currentConfig.audio}
         loop
         preload="metadata"
       />
       <button
         onClick={handleToggle}
-        className="fixed bottom-6 left-6 z-50 bg-black/60 backdrop-blur-md border border-white/30 text-white w-12 h-12 rounded-full shadow-xl hover:bg-black/80 transition-all duration-300 hover:scale-110 flex items-center justify-center safe-area-inset-bottom md:bottom-8 md:left-8"
+        className="fixed bottom-6 left-6 z-50 bg-black/60 backdrop-blur-md border border-white/30 text-white w-12 h-12 rounded-full shadow-xl hover:bg-black/80 transition-all duration-300 hover:scale-110 flex items-center justify-center safe-area-inset-bottom md:bottom-8 md:left-8 focus:outline-none focus:ring-2 focus:ring-white/50"
         aria-label={isMuted ? "Enable background music" : "Disable background music"}
       >
         {isMuted ? (
@@ -93,4 +94,3 @@ export default function AudioToggle() {
     </>
   );
 }
-

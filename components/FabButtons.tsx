@@ -1,43 +1,29 @@
 "use client";
 
-import siteConfig from "@/config/site_config.json";
-import { useEffect, useState } from "react";
+import { PHONE, JOBBER_URL } from "@/lib/links";
 
 export default function FabButtons() {
-  const [hasInteracted, setHasInteracted] = useState(false);
-
-  useEffect(() => {
-    // Enable interactions after first load
-    const timer = setTimeout(() => setHasInteracted(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const jobberUrl = process.env.NEXT_PUBLIC_JOBBER_URL || siteConfig.jobberUrl;
-  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || "(347) 508-4562";
-  const phoneTel = `tel:+1${phoneNumber.replace(/[^0-9]/g, "")}`;
-
   return (
-    <>
-      {/* Primary FAB: BOOK */}
-      <a
-        href={jobberUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-32 right-6 z-50 bg-gradient-to-r from-cyan-500 to-teal-600 text-white px-8 py-4 rounded-full font-bold text-base shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110 group safe-area-inset-bottom md:bottom-40 md:right-8"
-        aria-label="Book Now - Instant Booking"
-      >
-        ⚡ BOOK
-      </a>
-
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 safe-area-inset-bottom md:bottom-8 md:right-8">
       {/* Secondary FAB: CALL */}
       <a
-        href={phoneTel}
-        className="fixed bottom-6 right-6 z-50 bg-white text-cyan-600 px-8 py-4 rounded-full font-bold text-base shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-110 group safe-area-inset-bottom md:bottom-16 md:right-8"
-        aria-label={`Call ${phoneNumber}`}
+        href={PHONE}
+        className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center shadow-xl hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-black/50"
+        aria-label="Call Now"
       >
-        📞 {phoneNumber}
+        <span className="text-lg font-bold">📞</span>
       </a>
-    </>
+      
+      {/* Primary FAB: BOOK */}
+      <a
+        href={JOBBER_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-14 h-14 rounded-full bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-accent)] text-white flex items-center justify-center shadow-xl hover:opacity-90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary)] focus:ring-offset-2 focus:ring-offset-black/50"
+        aria-label="Book Now"
+      >
+        <span className="text-lg font-bold">📅</span>
+      </a>
+    </div>
   );
 }
-
