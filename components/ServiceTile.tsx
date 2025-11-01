@@ -108,7 +108,6 @@ export default function ServiceTile({ label, icon, href, accent, delay = 0 }: Se
       `}
       style={{ 
         borderColor: getBorderColor(accent),
-        focusRingColor: getBorderColor(accent),
         animationDelay: `${delay}s`
       }}
       aria-label={`Book ${label}`}
