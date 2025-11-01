@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 export default function AudioToggle() {
   const [isMuted, setIsMuted] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -27,6 +28,21 @@ export default function AudioToggle() {
     });
   }, []);
 
+  // Track user interaction
+  useEffect(() => {
+    const handleInteraction = () => {
+      setHasInteracted(true);
+      document.removeEventListener("click", handleInteraction);
+      document.removeEventListener("touchstart", handleInteraction);
+    };
+    document.addEventListener("click", handleInteraction);
+    document.addEventListener("touchstart", handleInteraction);
+    return () => {
+      document.removeEventListener("click", handleInteraction);
+      document.removeEventListener("touchstart", handleInteraction);
+    };
+  }, []);
+
   useEffect(() => {
     // Handle reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -47,22 +63,6 @@ export default function AudioToggle() {
     setIsMuted(!isMuted);
     localStorage.setItem("audio_enabled_v1", String(!isMuted));
   };
-
-  // Track user interaction
-  const [hasInteracted, setHasInteracted] = useState(false);
-  useEffect(() => {
-    const handleInteraction = () => {
-      setHasInteracted(true);
-      document.removeEventListener("click", handleInteraction);
-      document.removeEventListener("touchstart", handleInteraction);
-    };
-    document.addEventListener("click", handleInteraction);
-    document.addEventListener("touchstart", handleInteraction);
-    return () => {
-      document.removeEventListener("click", handleInteraction);
-      document.removeEventListener("touchstart", handleInteraction);
-    };
-  }, []);
 
   if (!isVisible) {
     return null;
