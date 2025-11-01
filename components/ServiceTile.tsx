@@ -63,6 +63,30 @@ export default function ServiceTile({ label, icon, href, accent, delay = 0 }: Se
     return colorMap[accentColor.toLowerCase()] || "neon-glow-cyan";
   };
 
+  // Get border color based on accent
+  const getBorderColor = (accentColor: string) => {
+    const colorMap: { [key: string]: string } = {
+      yellow: "#c8ff00",
+      blue: "#00b4ff",
+      orange: "#ff8c00",
+      purple: "#b400ff",
+      cyan: "#1dd7e0",
+    };
+    return colorMap[accentColor.toLowerCase()] || "#1dd7e0";
+  };
+
+  // Get text color based on accent
+  const getTextColor = (accentColor: string) => {
+    const colorMap: { [key: string]: string } = {
+      yellow: "#c8ff00",
+      blue: "#00b4ff",
+      orange: "#ff8c00",
+      purple: "#b400ff",
+      cyan: "#1dd7e0",
+    };
+    return colorMap[accentColor.toLowerCase()] || "#1dd7e0";
+  };
+
   return (
     <button
       ref={tileRef}
@@ -75,18 +99,25 @@ export default function ServiceTile({ label, icon, href, accent, delay = 0 }: Se
       onFocus={() => setShowPopover(true)}
       onBlur={() => setShowPopover(false)}
       className={`
-        group relative bg-black/40 backdrop-blur-xl rounded-2xl p-8 border-2 border-${accent}-500 
+        group relative bg-black/40 backdrop-blur-xl rounded-2xl p-8 border-2
         transition-all duration-300 
         hover:scale-105 hover:-translate-y-2 
-        focus:outline-none focus:ring-4 focus:ring-${accent}-500/50 
+        focus:outline-none focus:ring-4 focus:ring-opacity-50 
         ${getGlowClass(accent)} 
         ${floatAnimationClass}
       `}
-      style={{ animationDelay: `${delay}s` }}
+      style={{ 
+        borderColor: getBorderColor(accent),
+        focusRingColor: getBorderColor(accent),
+        animationDelay: `${delay}s`
+      }}
       aria-label={`Book ${label}`}
     >
       {/* Icon */}
-      <div className={`text-6xl mb-4 text-${accent}-500 drop-shadow-[0_0_10px_currentColor]`}>
+      <div 
+        className="text-6xl mb-4 drop-shadow-[0_0_10px_currentColor]"
+        style={{ color: getTextColor(accent) }}
+      >
         {icon}
       </div>
 
