@@ -2,44 +2,48 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import siteConfig from "@/config/site_config.json";
-import ServiceCards from "./ServiceCards";
-import RatingDisplay from "./RatingDisplay";
+import ServiceTile from "./ServiceTile";
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false);
-  const theme = siteConfig.seasonalTheme || "default";
-  const themeConfig = siteConfig.themes[theme as keyof typeof siteConfig.themes];
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const backgroundImage = themeConfig?.backgroundImage 
-    ? themeConfig.backgroundImage 
-    : "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80&auto=format&fit=crop";
+  // Try WebP first, fallback to PNG
+  const [backgroundSrc, setBackgroundSrc] = useState<string>("/seasonal/Holiday_lights_christmas_trees.png");
+  
+  useEffect(() => {
+    // Check if WebP is available
+    const webpImg = new window.Image();
+    webpImg.onload = () => setBackgroundSrc("/seasonal/Holiday_lights_christmas_trees.webp");
+    webpImg.onerror = () => setBackgroundSrc("/seasonal/Holiday_lights_christmas_trees.png");
+    webpImg.src = "/seasonal/Holiday_lights_christmas_trees.webp";
+  }, []);
+
+  const services = [
+    { label: "HOLIDAY LIGHTS", icon: "✨", accent: "yellow", delay: 0 },
+    { label: "POWER WASHING", icon: "💦", accent: "blue", delay: 0.5 },
+    { label: "GENERAL CONTRACTING", icon: "🔨", accent: "orange", delay: 1 },
+    { label: "ROOFING", icon: "🏠", accent: "purple", delay: 1.5 },
+  ];
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {backgroundImage.startsWith("http") ? (
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${backgroundImage})` }}
-          />
-        ) : (
-          <Image
-            src={backgroundImage}
-            alt="Exterior Cleaning Co Service Background"
-            fill
-            priority
-            className="object-cover"
-            quality={90}
-          />
-        )}
-        {/* Dark overlay for better contrast */}
-        <div className="absolute inset-0 bg-black/40" />
+        <Image
+          src={backgroundSrc}
+          alt="Christmas trees with holiday lights"
+          fill
+          priority
+          className="object-cover"
+          quality={90}
+          sizes="100vw"
+        />
+        {/* Subtle dark overlay */}
+        <div className="absolute inset-0 bg-black/20 service-overlay" />
       </div>
 
       {/* Snowflakes */}
@@ -62,17 +66,40 @@ export default function Hero() {
       {/* Main Content */}
       <div className={`relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center transform transition-all duration-700 ${isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-12 drop-shadow-2xl leading-tight uppercase tracking-tight">
+        <h1 className="text-[clamp(2rem,8vw,4.5rem)] font-black text-white mb-12 drop-shadow-2xl leading-tight uppercase tracking-tight">
           BOOK YOUR SERVICE<br />NOW
         </h1>
 
-        {/* Service Cards */}
-        <ServiceCards />
+        {/* Service Tiles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-8">
+          {services.map((service) => (
+            <ServiceTile
+              key={service.label}
+              label={service.label}
+              icon={service.icon}
+              accent={service.accent}
+              delay={service.delay}
+            />
+          ))}
+        </div>
 
-        {/* Rating Display */}
-        <RatingDisplay />
+        {/* Reviews Bar */}
+        <div className="bg-black/60 backdrop-blur-md rounded-2xl px-8 py-4 border border-white/20 inline-block">
+          <div className="text-white uppercase font-bold text-lg tracking-wide mb-2">
+            EXCELLENT
+          </div>
+          <div className="flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <span key={i} className="neon-glow-yellow-orange pulse-glow text-3xl">
+                ⭐
+              </span>
+            ))}
+          </div>
+          <div className="text-white/80 text-xs mt-2">
+            Based on Google reviews
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-

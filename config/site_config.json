@@ -1,7 +1,7 @@
 {
   "jobberUrl": "https://clienthub.getjobber.com/booking/4384d7ab-b4ef-4782-836c-7912be1238ec",
-  "phoneNumber": "(917) 397-0128",
-  "phoneTel": "tel:19173970128",
+  "phoneNumber": "(347) 508-4562",
+  "phoneTel": "tel:+13475084562",
   "email": "statenislandwashkings@gmail.com",
   "location": "Staten Island, NY",
   "seasonalTheme": "christmas",
@@ -11,14 +11,14 @@
       "audio": null
     },
     "christmas": {
-      "backgroundImage": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=1920&q=80&auto=format&fit=crop",
-      "audio": "/christmas-music-loop.mp3"
+      "backgroundImage": "/seasonal/Holiday_lights_christmas_trees.png",
+      "audio": "/audio/merry-christmas-happy-holiday-music-427692.mp3"
     }
   },
   "seo": {
-    "title": "Staten Island Wash Kings | Book Your Service in 30 Seconds",
-    "description": "Instant exterior cleaning across Staten Island. Power Washing, Holiday Lights, Roofing & General Contracting. Licensed & Insured. Book now!",
-    "siteName": "Staten Island Wash Kings"
+    "title": "Exterior Cleaning Co | Book Holiday Lights, Power Washing & More",
+    "description": "Instantly book holiday lights, power washing, roofing, and general contracting in Staten Island. Fast, app-like experience with trusted pros.",
+    "siteName": "Exterior Cleaning Co"
   },
   "trust": {
     "licensed": true,

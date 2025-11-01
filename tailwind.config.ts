@@ -9,9 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#0066CC",
-        secondary: "#28A745",
-        accent: "#FFD700",
+        primary: "#1B5377",
+        secondary: "#0fb9c6",
+        accent: "#1dd7e0",
+        teal: {
+          500: "#1dd7e0",
+          600: "#0fb9c6",
+        },
         background: "#FFFFFF",
         text: {
           primary: "#282828",
@@ -19,7 +23,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Arial", "Helvetica", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
     },
   },

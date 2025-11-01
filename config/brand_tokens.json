@@ -10,26 +10,27 @@
     },
     "blueTeal": {
       "blue": "#0066CC",
-      "cyan": "#06B6D4",
-      "teal": "#14B8A6"
+      "cyan": "#1dd7e0",
+      "teal": "#0fb9c6"
     },
     "background": "#FFFFFF",
     "text": {
       "primary": "#282828",
       "secondary": "#666666"
-    }
+    },
+    "accent": "#1dd7e0"
   },
   "fonts": {
-    "heading": "Oswald, sans-serif",
-    "body": "Raleway, Poppins, sans-serif"
+    "heading": "Inter, sans-serif",
+    "body": "Inter, sans-serif"
   },
   "borderRadius": {
     "button": "9999px",
     "panel": "1rem"
   },
   "logo": {
-    "text": "Wash Kings",
-    "gradient": "from-blue-600 to-cyan-600"
+    "text": "EXTERIOR CLEANING CO",
+    "gradient": "from-cyan-400 to-teal-400"
   }
 }
 
