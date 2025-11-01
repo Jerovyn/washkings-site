@@ -7,6 +7,8 @@ import ServiceCard from "@/components/ServiceCard";
 import FabButtons from "@/components/FabButtons";
 import AudioToggle from "@/components/AudioToggle";
 import PWARegister from "@/components/PWARegister";
+import SettingsToggle from "@/components/SettingsToggle";
+import Footer from "@/components/Footer";
 import { jobberWith } from "@/lib/links";
 import { currentConfig } from "@/lib/season";
 
@@ -47,11 +49,8 @@ export default function Home() {
           quality={90}
           sizes="100vw"
         />
-        {/* Subtle dark overlay */}
-        <div 
-          className="absolute inset-0"
-          style={{ backgroundColor: 'var(--overlay)' }}
-        />
+        {/* Enhanced contrast overlay for text legibility */}
+        <div className="absolute inset-0 hero-overlay" />
       </div>
 
       {/* Hero Content */}
@@ -85,7 +84,7 @@ export default function Home() {
           }`}
         >
           <div className="text-white uppercase font-bold text-sm md:text-base tracking-wide">
-            EXCELLENT ★★★★★
+            Homeowners Rate Us ★★★★★
           </div>
         </div>
       </main>
@@ -98,6 +97,12 @@ export default function Home() {
 
       {/* PWA Install */}
       <PWARegister />
+
+      {/* Settings Toggle */}
+      <SettingsToggle />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

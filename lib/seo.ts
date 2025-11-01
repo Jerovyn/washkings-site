@@ -42,5 +42,15 @@ export const getLocalBusinessSchema = () => ({
     { '@type': 'AdministrativeArea', name: 'New York' },
   ],
   serviceType: ['Power Washing', 'Holiday Lights Installation', 'Roofing', 'General Contracting'],
+  serviceArea: [
+    {
+      '@type': 'City',
+      name: 'Staten Island',
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'New York',
+    },
+  ],
 });
 

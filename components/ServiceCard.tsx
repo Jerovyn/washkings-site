@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { jobberWith } from "@/lib/links";
+import { analytics } from "@/lib/analytics";
 
 type ServiceCardProps = {
   title: 'Holiday Lights' | 'Power Washing' | 'General Contracting' | 'Roofing';
@@ -29,6 +30,7 @@ export default function ServiceCard({ title, href, icon, accent = 'cyan' }: Serv
   }, []);
 
   const handleClick = () => {
+    analytics.serviceSelect(title);
     window.open(href, '_blank', 'noopener,noreferrer');
   };
 

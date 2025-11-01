@@ -64,8 +64,13 @@ export default function AudioToggle() {
   }, [isMuted, hasInteracted]);
 
   const handleToggle = () => {
-    setIsMuted(!isMuted);
-    localStorage.setItem("extco_audio_v1", String(!isMuted));
+    const newMuted = !isMuted;
+    setIsMuted(newMuted);
+    localStorage.setItem("extco_audio_v1", String(!newMuted));
+    if (typeof window !== 'undefined') {
+      const { analytics } = require('@/lib/analytics');
+      analytics.audioToggle(!newMuted);
+    }
   };
 
   if (!isVisible) {
