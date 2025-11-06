@@ -10,3 +10,4 @@ These images should be optimized for web:
 - Target file size: ≤ 450 KB
 - Format: PNG or WebP
 
+

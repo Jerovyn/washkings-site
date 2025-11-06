@@ -10,3 +10,4 @@ export const seasonConfig = {
 export const currentSeason = 'winter' as const;
 export const currentConfig = seasonConfig[currentSeason];
 
+

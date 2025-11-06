@@ -27,30 +27,48 @@ export default function Home() {
   }, []);
 
   const services = [
-    { title: 'Holiday Lights' as const, icon: '✨', accent: 'gold' as const },
-    { title: 'Power Washing' as const, icon: '💦', accent: 'cyan' as const },
+    { title: 'Holiday Lights' as const, icon: '⭐', accent: 'gold' as const },
+    { title: 'Power Washing' as const, icon: '💧', accent: 'cyan' as const },
     { title: 'General Contracting' as const, icon: '🔨', accent: 'teal' as const },
     { title: 'Roofing' as const, icon: '🏠', accent: 'purple' as const },
   ];
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden bg-[#0A111B]">
       {/* Header */}
       <Header />
 
-      {/* Background Image */}
+      {/* Background Image with Christmas Trees */}
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundSrc}
-          alt="Winter holiday scene"
+          alt="Winter holiday scene with Christmas trees"
           fill
           priority
           className="object-cover"
           quality={90}
           sizes="100vw"
         />
-        {/* Enhanced contrast overlay for text legibility */}
-        <div className="absolute inset-0 hero-overlay" />
+        {/* Dark overlay to enhance contrast */}
+        <div className="absolute inset-0 bg-[#0A111B]/40" />
+      </div>
+
+      {/* Falling Snowflakes */}
+      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+        {[...Array(80)].map((_, i) => (
+          <div
+            key={i}
+            className="snowflake"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${Math.random() * 3 + 2}s`,
+              animationDelay: `${Math.random() * 2}s`,
+              fontSize: `${Math.random() * 10 + 10}px`,
+            }}
+          >
+            ❄
+          </div>
+        ))}
       </div>
 
       {/* Hero Content */}
@@ -77,14 +95,21 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Credibility Pill */}
+        {/* Rating Section - EXCELLENT with Stars */}
         <div 
-          className={`bg-black/60 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 inline-block transform transition-all duration-700 ${
+          className={`bg-black/60 backdrop-blur-md rounded-2xl px-8 py-6 border border-white/20 inline-block transform transition-all duration-700 ${
             isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="text-white uppercase font-bold text-sm md:text-base tracking-wide">
-            Homeowners Rate Us ★★★★★
+          <div className="text-white uppercase font-black text-2xl md:text-3xl tracking-wide mb-3">
+            EXCELLENT
+          </div>
+          <div className="flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <span key={i} className="neon-glow-yellow-orange pulse-glow text-3xl md:text-4xl">
+                ⭐
+              </span>
+            ))}
           </div>
         </div>
       </main>

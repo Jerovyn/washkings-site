@@ -18,6 +18,20 @@ const accentGlowMap: Record<string, string> = {
   purple: 'rgba(180, 0, 255, 0.45)',
 };
 
+const neonGlowClassMap: Record<string, string> = {
+  gold: 'neon-glow-green', // Holiday Lights - green neon
+  cyan: 'neon-glow-blue',  // Power Washing - light blue neon
+  teal: 'neon-glow-orange', // General Contracting - orange neon
+  purple: 'neon-glow-purple', // Roofing - purple neon
+};
+
+const iconColorMap: Record<string, string> = {
+  gold: 'text-[#ffc800]', // Holiday Lights - yellow-orange star
+  cyan: 'text-[#00b4ff]',  // Power Washing - light blue
+  teal: 'text-[#ff8c00]', // General Contracting - orange
+  purple: 'text-[#b400ff]', // Roofing - purple
+};
+
 export default function ServiceCard({ title, href, icon, accent = 'cyan' }: ServiceCardProps) {
   const cardRef = useRef<HTMLButtonElement>(null);
   const [floatClass, setFloatClass] = useState('');
@@ -35,6 +49,8 @@ export default function ServiceCard({ title, href, icon, accent = 'cyan' }: Serv
   };
 
   const glowColor = accentGlowMap[accent] || accentGlowMap.cyan;
+  const neonGlowClass = neonGlowClassMap[accent] || neonGlowClassMap.cyan;
+  const iconColor = iconColorMap[accent] || iconColorMap.cyan;
 
   return (
     <button
@@ -42,17 +58,14 @@ export default function ServiceCard({ title, href, icon, accent = 'cyan' }: Serv
       onClick={handleClick}
       role="button"
       aria-label={`Book ${title}`}
-      className={`${floatClass} cardGlow group relative p-6 md:p-8 transition-all duration-300 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-[var(--brand-primary)] focus:ring-opacity-50`}
-      style={{
-        boxShadow: `0 0 24px ${glowColor}, inset 0 0 0 1px var(--glass-border)`,
-      }}
+      className={`${floatClass} ${neonGlowClass} group relative p-6 md:p-8 transition-all duration-300 hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-white/50 rounded-2xl bg-black/40 backdrop-blur-md`}
     >
       {icon && (
-        <div className="text-4xl md:text-5xl mb-3 md:mb-4">
+        <div className={`text-4xl md:text-5xl mb-3 md:mb-4 ${iconColor} drop-shadow-[0_0_15px_currentColor] filter brightness-110`}>
           {icon}
         </div>
       )}
-      <div className="text-white uppercase font-semibold text-sm md:text-base tracking-wide">
+      <div className="text-white uppercase font-bold text-sm md:text-base tracking-wider">
         {title}
       </div>
     </button>

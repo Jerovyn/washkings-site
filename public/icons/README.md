@@ -12,3 +12,4 @@ You can generate these from a master icon using tools like:
 - https://realfavicongenerator.net/
 - https://www.pwabuilder.com/imageGenerator
 
+

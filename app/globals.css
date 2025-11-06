@@ -106,3 +106,86 @@ html {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+
+/* Snowflake animation */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  color: white;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  animation: snowfall linear infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Neon glow effects for service cards */
+.neon-glow-green {
+  box-shadow: 0 0 20px rgba(200, 255, 0, 0.6),
+              0 0 40px rgba(200, 255, 0, 0.4),
+              0 0 60px rgba(200, 255, 0, 0.2),
+              inset 0 0 20px rgba(200, 255, 0, 0.1);
+  border: 2px solid rgba(200, 255, 0, 0.8);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.6),
+              0 0 40px rgba(0, 180, 255, 0.4),
+              0 0 60px rgba(0, 180, 255, 0.2),
+              inset 0 0 20px rgba(0, 180, 255, 0.1);
+  border: 2px solid rgba(0, 180, 255, 0.8);
+}
+
+.neon-glow-orange {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.6),
+              0 0 40px rgba(255, 140, 0, 0.4),
+              0 0 60px rgba(255, 140, 0, 0.2),
+              inset 0 0 20px rgba(255, 140, 0, 0.1);
+  border: 2px solid rgba(255, 140, 0, 0.8);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 20px rgba(180, 0, 255, 0.6),
+              0 0 40px rgba(180, 0, 255, 0.4),
+              0 0 60px rgba(180, 0, 255, 0.2),
+              inset 0 0 20px rgba(180, 0, 255, 0.1);
+  border: 2px solid rgba(180, 0, 255, 0.8);
+}
+
+.neon-glow-yellow-orange {
+  filter: drop-shadow(0 0 8px rgba(255, 200, 0, 0.8))
+          drop-shadow(0 0 16px rgba(255, 140, 0, 0.6));
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

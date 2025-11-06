@@ -19,7 +19,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={PHONE}
-              className="px-4 py-2 bg-transparent border border-white/30 text-white text-sm font-semibold uppercase tracking-wide hover:bg-white/10 transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="px-4 py-2 bg-[#0A111B] border border-white text-white text-sm font-semibold uppercase tracking-wide hover:bg-white/10 transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"
               aria-label="Call Now"
             >
               CALL
@@ -28,7 +28,7 @@ export default function Header() {
               href={JOBBER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-accent)] text-white text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition-all duration-300 rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary)] focus:ring-offset-2 focus:ring-offset-black/50"
+              className="px-4 py-2 bg-[#0A111B] border border-white text-white text-sm font-semibold uppercase tracking-wide hover:bg-white/10 transition-all duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"
               aria-label="Book Now"
             >
               BOOK
