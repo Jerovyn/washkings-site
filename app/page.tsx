@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import ServiceCard from "@/components/ServiceCard";
 import FabButtons from "@/components/FabButtons";
 import AudioToggle from "@/components/AudioToggle";
+import SnowflakeToggle from "@/components/SnowflakeToggle";
 import PWARegister from "@/components/PWARegister";
 import SettingsToggle from "@/components/SettingsToggle";
 import Footer from "@/components/Footer";
@@ -77,7 +78,10 @@ export default function Home() {
 
       {/* Falling Snowflakes - Only in Winter */}
       {seasonConfigData.snow && (
-        <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+        <div 
+          id="snowflakes-container"
+          className="absolute inset-0 z-[1] pointer-events-none overflow-hidden"
+        >
           {[...Array(80)].map((_, i) => (
             <div
               key={i}
@@ -143,6 +147,9 @@ export default function Home() {
 
       {/* Audio Toggle */}
       <AudioToggle />
+
+      {/* Snowflake Toggle */}
+      <SnowflakeToggle />
 
       {/* PWA Install */}
       <PWARegister />

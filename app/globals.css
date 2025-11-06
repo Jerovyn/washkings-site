@@ -134,6 +134,14 @@ html {
   animation: snowfall linear infinite;
   pointer-events: none;
   user-select: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Disable snowflakes when toggle is off */
+#snowflakes-container[data-disabled="true"] .snowflake {
+  animation: none !important;
+  opacity: 0;
+  display: none;
 }
 
 /* Neon glow effects for service cards */

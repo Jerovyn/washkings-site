@@ -1,20 +1,28 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { currentConfig } from "@/lib/season";
+import { seasonConfig, getCurrentSeason } from "@/lib/season";
 
 export default function AudioToggle() {
   const [isMuted, setIsMuted] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [audioSrc, setAudioSrc] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    // Get current season and its audio config
+    const currentSeason = getCurrentSeason();
+    const config = seasonConfig[currentSeason];
+    
     // Check if audio is available for current season
-    if (!currentConfig.audio) {
+    if (!config.audio) {
       setIsVisible(false);
+      setAudioSrc(undefined);
       return;
     }
+
+    setAudioSrc(config.audio);
 
     // Check localStorage for saved preference
     const savedPreference = localStorage.getItem("extco_audio_v1");
@@ -22,9 +30,11 @@ export default function AudioToggle() {
       setIsMuted(false);
     }
 
-    // Check if audio file exists
+    // Check if audio file exists (use config.audio directly since state hasn't updated yet)
+    if (!config.audio) return;
+    
     const audio = new Audio();
-    audio.src = currentConfig.audio;
+    audio.src = config.audio;
     
     audio.addEventListener("loadeddata", () => {
       setIsVisible(true);
@@ -51,14 +61,22 @@ export default function AudioToggle() {
   }, []);
 
   useEffect(() => {
+    // Update audio source when it changes
+    if (audioRef.current && audioSrc) {
+      audioRef.current.src = audioSrc;
+      audioRef.current.load();
+    }
+  }, [audioSrc]);
+
+  useEffect(() => {
     // Handle reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches || audioRef.current === null) {
+    if (mediaQuery.matches || audioRef.current === null || !audioSrc) {
       return;
     }
 
-    // Set volume to 0.3 (30%)
-    audioRef.current.volume = 0.3;
+    // Set volume to 0.15 (15% - low volume)
+    audioRef.current.volume = 0.15;
 
     if (isMuted) {
       audioRef.current.pause();
@@ -67,7 +85,7 @@ export default function AudioToggle() {
         // Auto-play blocked
       });
     }
-  }, [isMuted, hasInteracted]);
+  }, [isMuted, hasInteracted, audioSrc]);
 
   const handleToggle = () => {
     const newMuted = !isMuted;
@@ -79,11 +97,7 @@ export default function AudioToggle() {
     }
   };
 
-  if (!isVisible) {
-    return null;
-  }
-
-  if (!currentConfig.audio) {
+  if (!isVisible || !audioSrc) {
     return null;
   }
 
@@ -91,7 +105,7 @@ export default function AudioToggle() {
     <>
       <audio
         ref={audioRef}
-        src={currentConfig.audio}
+        src={audioSrc}
         loop
         preload="metadata"
       />

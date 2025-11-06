@@ -33,7 +33,7 @@ export const seasonConfig: Record<Season, SeasonConfig> = {
   winter: {
     background: '/seasonal/winter/Holiday_lights_christmas_trees.png',
     backgroundWebP: '/seasonal/winter/Holiday_lights_christmas_trees.webp',
-    audio: '/audio/merry-christmas-happy-holiday-music-427692.mp3',
+    audio: '/seasonal/winter/merry-christmas-happy-holiday-music-427692.mp3',
     snow: true,
     overlay: 'rgba(10, 17, 27, 0.4)', // Dark blue winter overlay
   },
