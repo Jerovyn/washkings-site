@@ -10,20 +10,33 @@ import PWARegister from "@/components/PWARegister";
 import SettingsToggle from "@/components/SettingsToggle";
 import Footer from "@/components/Footer";
 import { jobberWith } from "@/lib/links";
-import { currentConfig } from "@/lib/season";
+import { seasonConfig, currentConfig, currentSeason, getCurrentSeason } from "@/lib/season";
 
 export default function Home() {
+  const [season, setSeason] = useState(currentSeason);
   const [backgroundSrc, setBackgroundSrc] = useState<string>(currentConfig.background);
   const [isMounted, setIsMounted] = useState(false);
 
+  // Get the config for the current season
+  const seasonConfigData = seasonConfig[season];
+
   useEffect(() => {
     setIsMounted(true);
+    // Update season on mount (in case date changed)
+    const detectedSeason = getCurrentSeason();
+    setSeason(detectedSeason);
 
-    // Try WebP first, fallback to PNG
-    const webpImg = new window.Image();
-    webpImg.onload = () => setBackgroundSrc(currentConfig.backgroundWebP);
-    webpImg.onerror = () => setBackgroundSrc(currentConfig.background);
-    webpImg.src = currentConfig.backgroundWebP;
+    // Load background image for detected season
+    const config = seasonConfig[detectedSeason];
+    if (config.backgroundWebP) {
+      // Try WebP first, fallback to PNG
+      const webpImg = new window.Image();
+      webpImg.onload = () => setBackgroundSrc(config.backgroundWebP!);
+      webpImg.onerror = () => setBackgroundSrc(config.background);
+      webpImg.src = config.backgroundWebP;
+    } else {
+      setBackgroundSrc(config.background);
+    }
   }, []);
 
   const services = [
@@ -38,38 +51,49 @@ export default function Home() {
       {/* Header */}
       <Header />
 
-      {/* Background Image with Christmas Trees */}
+      {/* Background Image - Seasonal */}
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundSrc}
-          alt="Winter holiday scene with Christmas trees"
+          alt={`${season.charAt(0).toUpperCase() + season.slice(1)} seasonal background`}
           fill
           priority
           className="object-cover"
           quality={90}
           sizes="100vw"
+          onError={() => {
+            // Fallback to default if image fails to load
+            setBackgroundSrc('/seasonal/winter/Holiday_lights_christmas_trees.png');
+          }}
         />
-        {/* Dark overlay to enhance contrast */}
-        <div className="absolute inset-0 bg-[#0A111B]/40" />
+        {/* Seasonal overlay to enhance contrast */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            backgroundColor: seasonConfigData.overlay || 'rgba(10, 17, 27, 0.4)' 
+          }} 
+        />
       </div>
 
-      {/* Falling Snowflakes */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-        {[...Array(80)].map((_, i) => (
-          <div
-            key={i}
-            className="snowflake"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 3 + 2}s`,
-              animationDelay: `${Math.random() * 2}s`,
-              fontSize: `${Math.random() * 10 + 10}px`,
-            }}
-          >
-            ❄
-          </div>
-        ))}
-      </div>
+      {/* Falling Snowflakes - Only in Winter */}
+      {seasonConfigData.snow && (
+        <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+          {[...Array(80)].map((_, i) => (
+            <div
+              key={i}
+              className="snowflake"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDuration: `${Math.random() * 3 + 2}s`,
+                animationDelay: `${Math.random() * 2}s`,
+                fontSize: `${Math.random() * 10 + 10}px`,
+              }}
+            >
+              ❄
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Hero Content */}
       <main className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">

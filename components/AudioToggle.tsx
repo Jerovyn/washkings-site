@@ -10,6 +10,12 @@ export default function AudioToggle() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    // Check if audio is available for current season
+    if (!currentConfig.audio) {
+      setIsVisible(false);
+      return;
+    }
+
     // Check localStorage for saved preference
     const savedPreference = localStorage.getItem("extco_audio_v1");
     if (savedPreference === "true") {
@@ -74,6 +80,10 @@ export default function AudioToggle() {
   };
 
   if (!isVisible) {
+    return null;
+  }
+
+  if (!currentConfig.audio) {
     return null;
   }
 
